@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-recordDemo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-recordDemoTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-recordDemoUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftSiriWaveformView-SwiftSiriWaveformView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftSiriWaveformView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1859CB5AC5A1A2919FEFF4D86B4C6B41</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>356197D941892E03977412FB08221509</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8C27C0B3DD39A43C1B59653BA02F6C21</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90B0F741D6D8CC3B4F111442D251D7FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AFEF561718C1D60F1DA362102FC1F51A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

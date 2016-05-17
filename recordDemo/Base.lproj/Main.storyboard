@@ -60,6 +60,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="play" destination="Fup-aK-xiP" id="U6M-iY-bhw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

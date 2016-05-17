@@ -1,0 +1,12 @@
+PODS:
+  - SwiftSiriWaveformView (0.0.3)
+
+DEPENDENCIES:
+  - SwiftSiriWaveformView
+
+SPEC CHECKSUMS:
+  SwiftSiriWaveformView: 884eafc6efa345555ecf1fcb1baaa2cef7e185dc
+
+PODFILE CHECKSUM: c11e25dd4157569379721f7993935a56db29b0e4
+
+COCOAPODS: 1.0.0

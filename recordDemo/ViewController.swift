@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var play: UIButton!
     var audioRecorder:AVAudioRecorder!
     var audioPlayer:AVAudioPlayer!
     let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),//声音采样率
@@ -29,6 +30,15 @@ class ViewController: UIViewController {
             audioRecorder.prepareToRecord()//准备录音
         } catch {
         }
+        let longpressGesutre = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.handleLongpressGesture(_:)))
+        //长按时间为1秒
+        longpressGesutre.minimumPressDuration = 1
+        //允许15秒运动
+        longpressGesutre.allowableMovement = 15
+        //所需触摸1次
+        longpressGesutre.numberOfTouchesRequired = 1
+        
+        self.play.addGestureRecognizer(longpressGesutre)
     }
     func directoryURL() -> NSURL? {
         //定义并构建一个url来保存音频，音频文件名为ddMMyyyyHHmmss.caf
@@ -37,8 +47,6 @@ class ViewController: UIViewController {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyyHHmmss"
         let recordingName = formatter.stringFromDate(currentDateTime)+".caf"
-        print(recordingName)
-        
         let fileManager = NSFileManager.defaultManager()
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         let documentDirectory = urls[0] as NSURL
@@ -52,13 +60,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func OnStart(sender: AnyObject) {
-        print("memeda");
         if !audioRecorder.recording {
             let audioSession = AVAudioSession.sharedInstance()
             do {
                 try audioSession.setActive(true)
                 audioRecorder.record()
-                print("record!")
+//                print("record!")
             } catch {
             
             }
@@ -66,13 +73,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func OnStop(sender: AnyObject) {
-        print("666");
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         
         do {
             try audioSession.setActive(false)
-            print("stop!!")
+//            print("stop!!")
         } catch {
         
         }
@@ -85,9 +91,17 @@ class ViewController: UIViewController {
             do {
                 try audioPlayer = AVAudioPlayer(contentsOfURL: audioRecorder.url)
                 audioPlayer.play()
-                print("play!!")
+//                print("play!!")
             } catch {
             }
+        }
+    }
+    func handleLongpressGesture(sender : UILongPressGestureRecognizer){
+        
+        if sender.state == UIGestureRecognizerState.Began{
+            play.setTitle("memeda", forState:UIControlState.Normal)
+        } else if sender.state == UIGestureRecognizerState.Ended{
+            play.setTitle("66666", forState:UIControlState.Normal)
         }
     }
 }
