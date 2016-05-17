@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6580B43B77F6BED310E7B674 /* Pods_recordDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA05B49DC8E2A61A0E10E2F /* Pods_recordDemo.framework */; };
 		B59ACB80317B7A16AEF69BED /* Pods_recordDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BE7FACEF33844DB5FC8D22 /* Pods_recordDemoTests.framework */; };
+		D06B05681CEAEBB7000836B8 /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = D06B05671CEAEBB7000836B8 /* SCSiriWaveformView.m */; };
 		D0B813B91CE99359003BF6CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B813B81CE99359003BF6CD /* AppDelegate.swift */; };
 		D0B813BB1CE99359003BF6CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B813BA1CE99359003BF6CD /* ViewController.swift */; };
 		D0B813BE1CE99359003BF6CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B813BC1CE99359003BF6CD /* Main.storyboard */; };
@@ -46,6 +47,9 @@
 		5A644E09C2625F7963216236 /* Pods-recordDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-recordDemo/Pods-recordDemo.release.xcconfig"; sourceTree = "<group>"; };
 		7265422A138864209FA9DB6E /* Pods-recordDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-recordDemoTests/Pods-recordDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		741F9F92C633255319CB19A0 /* Pods-recordDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-recordDemoTests/Pods-recordDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		D06B05621CEAEAB5000836B8 /* recordDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "recordDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		D06B05661CEAEBB7000836B8 /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSiriWaveformView.h; sourceTree = "<group>"; };
+		D06B05671CEAEBB7000836B8 /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSiriWaveformView.m; sourceTree = "<group>"; };
 		D0B813B51CE99358003BF6CD /* recordDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B813B81CE99359003BF6CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0B813BA1CE99359003BF6CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,12 +131,15 @@
 		D0B813B71CE99359003BF6CD /* recordDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D06B05661CEAEBB7000836B8 /* SCSiriWaveformView.h */,
+				D06B05671CEAEBB7000836B8 /* SCSiriWaveformView.m */,
 				D0B813B81CE99359003BF6CD /* AppDelegate.swift */,
 				D0B813BA1CE99359003BF6CD /* ViewController.swift */,
 				D0B813BC1CE99359003BF6CD /* Main.storyboard */,
 				D0B813BF1CE99359003BF6CD /* Assets.xcassets */,
 				D0B813C11CE99359003BF6CD /* LaunchScreen.storyboard */,
 				D0B813C41CE99359003BF6CD /* Info.plist */,
+				D06B05621CEAEAB5000836B8 /* recordDemo-Bridging-Header.h */,
 			);
 			path = recordDemo;
 			sourceTree = "<group>";
@@ -431,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0B813BB1CE99359003BF6CD /* ViewController.swift in Sources */,
+				D06B05681CEAEBB7000836B8 /* SCSiriWaveformView.m in Sources */,
 				D0B813B91CE99359003BF6CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,10 +582,13 @@
 			baseConfigurationReference = 47D90B3FD67E0FC487729012 /* Pods-recordDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = recordDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.langker.textdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "recordDemo/recordDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -586,10 +597,12 @@
 			baseConfigurationReference = 5A644E09C2625F7963216236 /* Pods-recordDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = recordDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.langker.textdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "recordDemo/recordDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};

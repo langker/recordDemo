@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8F991A98557321CFA59AFC7FC0A00D32635491FA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8F991A98557321CFA59AFC7FC0A00D32635491FA" : 0,
+    "C243375D6E5C669A359394BDCC8F39E5C803007B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9E316024-09FF-4290-825F-C318FB7A0EDB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8F991A98557321CFA59AFC7FC0A00D32635491FA" : "recordDemo\/",
+    "C243375D6E5C669A359394BDCC8F39E5C803007B" : "..\/..\/SCSiriWaveformView"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "recordDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "recordDemo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:langker\/recordDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8F991A98557321CFA59AFC7FC0A00D32635491FA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/stefanceriu\/SCSiriWaveformView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C243375D6E5C669A359394BDCC8F39E5C803007B"
+    }
+  ]
+}

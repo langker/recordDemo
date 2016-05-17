@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var play: UIButton!
     var audioRecorder:AVAudioRecorder!
     var audioPlayer:AVAudioPlayer!
+    var waveformView:SCSiriWaveformView!
     let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),//声音采样率
         AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),//编码格式
         AVNumberOfChannelsKey : NSNumber(int: 1),//采集音轨
@@ -21,28 +22,33 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let audioSession = AVAudioSession.sharedInstance()
+        
+        let bounds = UIScreen.mainScreen().bounds
+        
+        waveformView = SCSiriWaveformView(frame: CGRectMake(0, 0, bounds.width, 100))
+        waveformView.waveColor = UIColor.whiteColor()
+        waveformView.primaryWaveLineWidth = 3.0
+        waveformView.secondaryWaveLineWidth = 1.0
+        self.view.addSubview(waveformView)
+        
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try audioRecorder = AVAudioRecorder(URL: self.directoryURL()!,
-                                                settings: recordSettings)//初始化实例
-            audioRecorder.prepareToRecord()//准备录音
+            try audioRecorder = AVAudioRecorder(URL: self.directoryURL()!, settings: recordSettings)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            audioRecorder.prepareToRecord()
+            audioRecorder.meteringEnabled = true
         } catch {
         }
-        let longpressGesutre = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.handleLongpressGesture(_:)))
-        //长按时间为1秒
-        longpressGesutre.minimumPressDuration = 1
-        //允许15秒运动
-        longpressGesutre.allowableMovement = 15
-        //所需触摸1次
-        longpressGesutre.numberOfTouchesRequired = 1
         
-        self.play.addGestureRecognizer(longpressGesutre)
+        let displayLink:CADisplayLink = CADisplayLink(target: self, selector: #selector(ViewController.updateMeters))
+        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+    }
+    
+    func updateMeters() {
+        audioRecorder.updateMeters()
+        let normalizedValue:CGFloat = pow(10, CGFloat(audioRecorder.averagePowerForChannel(0))/20)
+        waveformView.updateWithLevel(normalizedValue)
     }
     func directoryURL() -> NSURL? {
-        //定义并构建一个url来保存音频，音频文件名为ddMMyyyyHHmmss.caf
-        //根据时间来设置存储文件名
         let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyyHHmmss"
@@ -56,7 +62,6 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func OnStart(sender: AnyObject) {
@@ -65,7 +70,6 @@ class ViewController: UIViewController {
             do {
                 try audioSession.setActive(true)
                 audioRecorder.record()
-//                print("record!")
             } catch {
             
             }
@@ -78,30 +82,19 @@ class ViewController: UIViewController {
         
         do {
             try audioSession.setActive(false)
-//            print("stop!!")
         } catch {
         
         }
 
     }
     @IBAction func OnPlay(sender: AnyObject) {
-        print("fehu");
-        //开始播放
         if (!audioRecorder.recording){
             do {
                 try audioPlayer = AVAudioPlayer(contentsOfURL: audioRecorder.url)
                 audioPlayer.play()
-//                print("play!!")
             } catch {
+                
             }
-        }
-    }
-    func handleLongpressGesture(sender : UILongPressGestureRecognizer){
-        
-        if sender.state == UIGestureRecognizerState.Began{
-            play.setTitle("memeda", forState:UIControlState.Normal)
-        } else if sender.state == UIGestureRecognizerState.Ended{
-            play.setTitle("66666", forState:UIControlState.Normal)
         }
     }
 }
