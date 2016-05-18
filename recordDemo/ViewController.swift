@@ -31,22 +31,18 @@ class ViewController: UIViewController {
         waveformView.secondaryWaveLineWidth = 1.0
         self.view.addSubview(waveformView)
         
-        do {
-            try audioRecorder = AVAudioRecorder(URL: self.directoryURL()!, settings: recordSettings)
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-            audioRecorder.prepareToRecord()
-            audioRecorder.meteringEnabled = true
-        } catch {
-        }
-        
         let displayLink:CADisplayLink = CADisplayLink(target: self, selector: #selector(ViewController.updateMeters))
         displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
     }
     
     func updateMeters() {
-        audioRecorder.updateMeters()
-        let normalizedValue:CGFloat = pow(10, CGFloat(audioRecorder.averagePowerForChannel(0))/20)
-        waveformView.updateWithLevel(normalizedValue)
+        if let a = audioRecorder {
+            a.updateMeters()
+            let normalizedValue:CGFloat = pow(10, CGFloat(a.averagePowerForChannel(0))/20)
+            waveformView.updateWithLevel(normalizedValue)
+        } else {
+            waveformView.updateWithLevel(0)
+        }
     }
     func directoryURL() -> NSURL? {
         let currentDateTime = NSDate()
@@ -65,6 +61,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func OnStart(sender: AnyObject) {
+        do {
+            try audioRecorder = AVAudioRecorder(URL: self.directoryURL()!, settings: recordSettings)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            audioRecorder.prepareToRecord()
+            audioRecorder.meteringEnabled = true
+        } catch {
+        }
+
         if !audioRecorder.recording {
             let audioSession = AVAudioSession.sharedInstance()
             do {
