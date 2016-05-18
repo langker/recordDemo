@@ -72,11 +72,11 @@ static const CGFloat kDefaultSecondaryLineWidth = 1.0f;
 // Thanks to Raffael Hannemann https://github.com/raffael/SISinusWaveView
 - (void)drawRect:(CGRect)rect
 {
-	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextClearRect(context, self.bounds);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextClearRect(context, self.bounds);
 	
-	[self.backgroundColor set];
-	CGContextFillRect(context, rect);
+    [self.backgroundColor set];
+    CGContextFillRect(context, rect);
 	
 	// We draw multiple sinus waves, with equal phases but altered amplitudes, multiplied by a parable function.
 	for (int i = 0; i < self.numberOfWaves; i++) {

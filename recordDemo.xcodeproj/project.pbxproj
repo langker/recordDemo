@@ -17,6 +17,7 @@
 		D0B813C31CE99359003BF6CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B813C11CE99359003BF6CD /* LaunchScreen.storyboard */; };
 		D0B813CE1CE99359003BF6CD /* recordDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B813CD1CE99359003BF6CD /* recordDemoTests.swift */; };
 		D0B813D91CE99359003BF6CD /* recordDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B813D81CE99359003BF6CD /* recordDemoUITests.swift */; };
+		D0D729521CEC3E3300FB7707 /* Reocrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D729511CEC3E3300FB7707 /* Reocrder.swift */; };
 		EAF9BA11BDEA1F57FC7A100F /* Pods_recordDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ABDDD327D26D886D48AB3E /* Pods_recordDemoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		D0B813D41CE99359003BF6CD /* recordDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = recordDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B813D81CE99359003BF6CD /* recordDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordDemoUITests.swift; sourceTree = "<group>"; };
 		D0B813DA1CE99359003BF6CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0D729511CEC3E3300FB7707 /* Reocrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reocrder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				D06B05671CEAEBB7000836B8 /* SCSiriWaveformView.m */,
 				D0B813B81CE99359003BF6CD /* AppDelegate.swift */,
 				D0B813BA1CE99359003BF6CD /* ViewController.swift */,
+				D0D729511CEC3E3300FB7707 /* Reocrder.swift */,
 				D0B813BC1CE99359003BF6CD /* Main.storyboard */,
 				D0B813BF1CE99359003BF6CD /* Assets.xcassets */,
 				D0B813C11CE99359003BF6CD /* LaunchScreen.storyboard */,
@@ -440,6 +443,7 @@
 				D0B813BB1CE99359003BF6CD /* ViewController.swift in Sources */,
 				D06B05681CEAEBB7000836B8 /* SCSiriWaveformView.m in Sources */,
 				D0B813B91CE99359003BF6CD /* AppDelegate.swift in Sources */,
+				D0D729521CEC3E3300FB7707 /* Reocrder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
