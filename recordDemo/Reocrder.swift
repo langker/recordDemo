@@ -15,7 +15,9 @@ class Recorder: NSObject {
     let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),//声音采样率
         AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),//编码格式
         AVNumberOfChannelsKey : NSNumber(int: 1),//采集音轨
-        AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Medium.rawValue))]//音频质量
+        AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Min.rawValue)),
+        AVSampleRateConverterAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Min.rawValue)),
+        AVLinearPCMBitDepthKey : NSNumber(int: 8)]//音频质量
     
     func directoryURL() -> NSURL? {
         let currentDateTime = NSDate()
@@ -44,6 +46,7 @@ class Recorder: NSObject {
             do {
                 try audioSession.setActive(true)
                 audioRecorder.record()
+                print(audioRecorder.url)
             } catch {
                 
             }
