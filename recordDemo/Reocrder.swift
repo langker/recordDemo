@@ -15,15 +15,15 @@ class Recorder: NSObject {
     let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),//声音采样率
         AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),//编码格式
         AVNumberOfChannelsKey : NSNumber(int: 1),//采集音轨
-        AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Min.rawValue)),
+        AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Min.rawValue)),//音频质量
         AVSampleRateConverterAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Min.rawValue)),
-        AVLinearPCMBitDepthKey : NSNumber(int: 8)]//音频质量
+        AVLinearPCMBitDepthKey : NSNumber(int: 8)]
     
     func directoryURL() -> NSURL? {
         let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyyHHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime)+".caf"
+        let recordingName = formatter.stringFromDate(currentDateTime)+".m4a"
         let fileManager = NSFileManager.defaultManager()
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         let documentDirectory = urls[0] as NSURL
